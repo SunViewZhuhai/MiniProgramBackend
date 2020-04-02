@@ -1,0 +1,3 @@
+[submodule "Include/Hatfield.Analysis"]
+	path = Include/Hatfield.Analysis
+	url = https://git.hatfieldgroup.net/hatfield/Hatfield.Analysis.git
