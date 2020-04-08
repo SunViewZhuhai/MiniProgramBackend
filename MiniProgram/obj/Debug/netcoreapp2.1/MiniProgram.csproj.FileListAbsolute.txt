@@ -1,0 +1,17 @@
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\bin\Debug\netcoreapp2.1\MiniProgram.deps.json
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\bin\Debug\netcoreapp2.1\MiniProgram.runtimeconfig.json
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\bin\Debug\netcoreapp2.1\MiniProgram.runtimeconfig.dev.json
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\bin\Debug\netcoreapp2.1\MiniProgram.dll
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\bin\Debug\netcoreapp2.1\MiniProgram.pdb
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\bin\Debug\netcoreapp2.1\MiniProgram.Data.dll
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\bin\Debug\netcoreapp2.1\MiniProgram.Data.pdb
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\obj\Debug\netcoreapp2.1\MiniProgram.csprojAssemblyReference.cache
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\obj\Debug\netcoreapp2.1\MiniProgram.csproj.CoreCompileInputs.cache
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\obj\Debug\netcoreapp2.1\MiniProgram.RazorAssemblyInfo.cache
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\obj\Debug\netcoreapp2.1\MiniProgram.RazorAssemblyInfo.cs
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\obj\Debug\netcoreapp2.1\MiniProgram.AssemblyInfoInputs.cache
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\obj\Debug\netcoreapp2.1\MiniProgram.AssemblyInfo.cs
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\obj\Debug\netcoreapp2.1\MiniProgram.RazorTargetAssemblyInfo.cache
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\obj\Debug\netcoreapp2.1\MiniProgram.csproj.CopyComplete
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\obj\Debug\netcoreapp2.1\MiniProgram.dll
+E:\code\MiniProgram\MiniProgramBackend\miniprogram\obj\Debug\netcoreapp2.1\MiniProgram.pdb
