@@ -15,7 +15,7 @@ using MiniProgram.Data;
 using MiniProgram.Data.Repository;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
-namespace miniprogram
+namespace MiniProgram
 {
     public class Startup
     {
