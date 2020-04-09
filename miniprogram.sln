@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "miniprogram", "miniprogram\miniprogram.csproj", "{DFF71BB3-0B1B-46CF-9B07-400619F33EBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MniProgram.Web", "miniprogram\MniProgram.Web.csproj", "{DFF71BB3-0B1B-46CF-9B07-400619F33EBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniProgram.Data", "MiniProgram.Data\MiniProgram.Data.csproj", "{F193570E-6B64-4442-86EB-5A2551B2AE02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniProgram.Data", "MiniProgram.Data\MiniProgram.Data.csproj", "{F193570E-6B64-4442-86EB-5A2551B2AE02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
