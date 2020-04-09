@@ -11938,9 +11938,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\code\\MiniProgram\\MiniProgramBackend\\miniprogram\\miniprogram.csproj",
-      "projectName": "miniprogram",
-      "projectPath": "E:\\code\\MiniProgram\\MiniProgramBackend\\miniprogram\\miniprogram.csproj",
+      "projectUniqueName": "E:\\code\\MiniProgram\\MiniProgramBackend\\miniprogram\\MniProgram.Web.csproj",
+      "projectName": "MniProgram.Web",
+      "projectPath": "E:\\code\\MiniProgram\\MiniProgramBackend\\miniprogram\\MniProgram.Web.csproj",
       "packagesPath": "C:\\Users\\95248\\.nuget\\packages\\",
       "outputPath": "E:\\code\\MiniProgram\\MiniProgramBackend\\miniprogram\\obj\\",
       "projectStyle": "PackageReference",
