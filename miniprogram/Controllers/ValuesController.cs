@@ -6,9 +6,9 @@ using MiniProgram.Data.Repository;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using miniprogram.ViewModel;
+using MiniProgram.ViewModel;
 
-namespace miniprogram.Controllers
+namespace MiniProgram.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
