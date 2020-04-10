@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +34,11 @@ namespace miniprogram
             services.AddDbContext<DbEntity>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<CostRepository, CostRepository>();
+            services.AddHttpClient("wx", c =>
+            {
+                c.BaseAddress = new Uri("https://api.weixin.qq.com/");
+                //c.DefaultRequestHeaders.Add("Accept", "application/json");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
