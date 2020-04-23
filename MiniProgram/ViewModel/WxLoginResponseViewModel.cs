@@ -7,7 +7,7 @@ namespace MniProgram.Web.ViewModel
 {
     public class WxLoginResponseViewModel
     {
-        public string SessionKey { get; set; }
+        public string Session_Key { get; set; }
         public string OpenId { get; set; }
         public string UnionId { get; set; }
         public int ErrCode { get; set; }

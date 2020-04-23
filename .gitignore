@@ -1,6 +1,6 @@
 # Build and Object Folders  
-bin/  
-obj/  
+bin/
+obj/
   
 # Nuget packages directory  
 packages/  
