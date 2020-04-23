@@ -4,9 +4,10 @@ using System.Text;
 
 namespace MiniProgram.Data.Model
 {
-    public class CostCategory
+    public class OrderItemCategory
     {
         public int Id { get; set; }
-        public string CategoryName { get; set; }
+        public string Category { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

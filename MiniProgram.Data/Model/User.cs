@@ -9,6 +9,7 @@ namespace MiniProgram.Data.Model
     {        
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Cost> Costs { get; set; }
+        public virtual ICollection<Order> PrepayOrders { get; set; }
+        public virtual ICollection<OrderItem> ConsumeOrderItems { get; set; }
     }
 }
