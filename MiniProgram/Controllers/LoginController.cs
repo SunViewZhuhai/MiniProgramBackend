@@ -36,20 +36,12 @@ namespace MniProgram.Web.Controllers
         private async Task<bool> GetUserInfo(string code)
         {
             var url = string.Format(_requestFormat, Constants.AppId, Constants.AppSecret, code);
-            var request = new HttpRequestMessage(HttpMethod.Get,
-                url);
+            var request = new HttpRequestMessage(HttpMethod.Get, url);
             var client = _factory.CreateClient("wx");
             var response = await client.SendAsync(request);
             var resultString = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<WxLoginResponseViewModel>(resultString);
-            if (result.ErrCode == 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return result.ErrCode == 0;
         }
 
         //private bool CheckAuthorization()

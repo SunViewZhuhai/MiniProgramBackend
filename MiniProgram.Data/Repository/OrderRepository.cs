@@ -16,6 +16,11 @@ namespace MiniProgram.Data.Repository
             _dbEntity = dbEntity;
         }
 
+        public async Task<IEnumerable<Order>> GetOrders()
+        {
+            return await _dbEntity.Orders.ToListAsync();
+        }
+
         public async Task<Order> Add(Order data)
         {
             _dbEntity.Orders.Add(data);
