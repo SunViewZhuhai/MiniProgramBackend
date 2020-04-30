@@ -129,5 +129,17 @@ namespace MniProgram.Web.Controllers
             var result = await _orderRepository.DeleteOrderItem(orderDetailId);
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("api/ItemCategory")]
+        public async Task<ActionResult> GetItemCategory()
+        {
+            var result = await _orderRepository.GetOrderItemCategories();
+            var viewModel = result.Select(x => new
+            {
+                x.Id, x.Category
+            });
+            return Ok(viewModel);
+        }
     }
 }

@@ -17,5 +17,7 @@ namespace MiniProgram.Data.Repository
         Task<OrderItem> UpdateOrderItem(OrderItem data);
         Task<bool> DeleteOrderItem(int id);
 
+        Task<IEnumerable<OrderItemCategory>> GetOrderItemCategories();
+
     }
 }

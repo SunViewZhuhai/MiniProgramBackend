@@ -117,6 +117,11 @@ namespace MiniProgram.Data.Repository
             _dbEntity.OrderItems.Remove(matchData);
             var rows = await _dbEntity.SaveChangesAsync();
             return rows != 0;
-        } 
+        }
+
+        public async Task<IEnumerable<OrderItemCategory>> GetOrderItemCategories()
+        {
+            return await _dbEntity.OrderItemCategories.ToListAsync();
+        }
     }
 }
