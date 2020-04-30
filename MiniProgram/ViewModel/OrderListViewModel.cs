@@ -7,6 +7,10 @@ namespace MniProgram.Web.ViewModel
 {
     public class OrderListViewModel
     {
-
+        public int Id { get; set; }
+        public DateTime OrderDate { get; set; }
+        public double Amount { get; set; }
+        public int PrepayerId { get; set; }
+        public List<OrderDetailViewModel> orderDetailViewModels { get; set; }
     }
 }

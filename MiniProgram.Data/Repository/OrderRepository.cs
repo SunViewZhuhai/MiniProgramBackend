@@ -27,23 +27,27 @@ namespace MiniProgram.Data.Repository
             var rows = await _dbEntity.SaveChangesAsync();
             if (rows == 0)
             {
-                throw new Exception("Add cost data failed");
+                throw new Exception("Add cost data failed.");
             }
             return data;
         }
 
-        public async Task<bool> Update(Order data)
+        public async Task<Order> Update(Order data)
         {
             var matchData = await _dbEntity.Orders.SingleOrDefaultAsync(x => x.Id == data.Id);
             if (matchData == null)
             {
-                return false;
+                throw new Exception("Order is not exist.");
             }
             matchData.OrderDate = data.OrderDate;
             matchData.Amount = data.Amount;
             matchData.PrepayerId = data.PrepayerId;
             var rows = await _dbEntity.SaveChangesAsync();
-            return rows != 0;
+            if (rows >= 0)
+            {
+                return data;
+            }
+            throw new ApplicationException();
         }
 
         public async Task<bool> Delete(int id)
@@ -68,5 +72,51 @@ namespace MiniProgram.Data.Repository
             
         }
 
+        public async Task<OrderItem> AddOrderItem(OrderItem data)
+        {
+            _dbEntity.OrderItems.Add(data);
+            var rows = await _dbEntity.SaveChangesAsync();
+            if (rows == 0)
+            {
+                throw new Exception("Add cost data failed.");
+            }
+            return data;
+        }
+
+        public async Task<OrderItem> UpdateOrderItem(OrderItem data)
+        {
+            var matchData = await _dbEntity.OrderItems.SingleOrDefaultAsync(x => x.Id == data.Id);
+            if (matchData == null)
+            {
+                throw new Exception("Order is not exist.");
+            }
+
+            matchData.CategoryId = data.CategoryId;
+            matchData.ConsumerId = data.ConsumerId;
+            matchData.IsPay = data.IsPay;
+            matchData.OrderItemName = data.OrderItemName;
+            matchData.OrderId = data.OrderId;
+            matchData.Price = data.Price;
+
+            var rows = await _dbEntity.SaveChangesAsync();
+            if (rows >= 0)
+            {
+                return data;
+            }
+            throw new ApplicationException();
+        }
+
+        public async Task<bool> DeleteOrderItem(int id)
+        {
+            var matchData = await _dbEntity.OrderItems.SingleOrDefaultAsync(x => x.Id == id);
+            if (matchData == null)
+            {
+                return false;
+            }
+
+            _dbEntity.OrderItems.Remove(matchData);
+            var rows = await _dbEntity.SaveChangesAsync();
+            return rows != 0;
+        } 
     }
 }
