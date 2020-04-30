@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MiniProgram.Data.Repository
 {
-    public class OrderRepository
+    public class OrderRepository : IOrderRepository
     {
         private readonly DbEntity _dbEntity;
 
@@ -21,7 +21,7 @@ namespace MiniProgram.Data.Repository
             return await _dbEntity.Orders.ToListAsync();
         }
 
-        public async Task<Order> Add(Order data)
+        public async Task<Order> AddOrder(Order data)
         {
             _dbEntity.Orders.Add(data);
             var rows = await _dbEntity.SaveChangesAsync();
@@ -32,7 +32,7 @@ namespace MiniProgram.Data.Repository
             return data;
         }
 
-        public async Task<Order> Update(Order data)
+        public async Task<Order> UpdateOrder(Order data)
         {
             var matchData = await _dbEntity.Orders.SingleOrDefaultAsync(x => x.Id == data.Id);
             if (matchData == null)
@@ -50,7 +50,7 @@ namespace MiniProgram.Data.Repository
             throw new ApplicationException();
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task<bool> DeleteOrder(int id)
         {
             try
             {

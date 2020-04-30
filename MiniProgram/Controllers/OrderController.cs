@@ -11,18 +11,18 @@ using MniProgram.Web.ViewModel;
 
 namespace MniProgram.Web.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly OrderRepository _orderRepository;
+        private readonly IOrderRepository _orderRepository;
 
-        public OrderController(OrderRepository orderRepository)
+        public OrderController(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
         }
 
-        [HttpGet("GetOrderList")]
+        [HttpGet]
+        [Route("api/Order/GetOrderList")]
         public async Task<ActionResult> GetOrderList()
         {
             var data = await _orderRepository.GetOrders();
@@ -46,7 +46,8 @@ namespace MniProgram.Web.Controllers
             return Ok(result);
         }
 
-        [HttpGet("AddOrder")]
+        [HttpPost]
+        [Route("api/Order/AddOrder")]
         public async Task<ActionResult> AddOrder(OrderListViewModel data)
         {
             var order = new Order
@@ -55,12 +56,13 @@ namespace MniProgram.Web.Controllers
                 OrderDate = data.OrderDate,
                 PrepayerId = data.PrepayerId
             };
-            var result = await _orderRepository.Add(order);
+            var result = await _orderRepository.AddOrder(order);
             data.Id = result.Id;
             return Ok(data);
         }
 
-        [HttpGet("UpdateOrder")]
+        [HttpPost]
+        [Route("api/Order/UpdateOrder")]
         public async Task<ActionResult> UpdateOrder(OrderListViewModel data)
         {
             var order = new Order
@@ -70,20 +72,22 @@ namespace MniProgram.Web.Controllers
                 OrderDate = data.OrderDate,
                 PrepayerId = data.PrepayerId
             };
-            var result = await _orderRepository.Update(order);
+            var result = await _orderRepository.UpdateOrder(order);
             return Ok(data);
         }
 
-        [HttpGet("DeleteOrder")]
+        [HttpPost]
+        [Route("api/Order/DeleteOrder/{orderId}")]
         public async Task<ActionResult> DeleteOrder(int orderId)
         {
-            var result = await _orderRepository.Delete(orderId);
+            var result = await _orderRepository.DeleteOrder(orderId);
             return Ok(result);
         }
 
 
 
-        [HttpGet("AddOrderDetail")]
+        [HttpPost]
+        [Route("api/OrderDetail/AddOrderDetail")]
         public async Task<ActionResult> AddOrderDetail(OrderDetailViewModel data)
         {
             var orderDetail = new OrderItem
@@ -100,7 +104,8 @@ namespace MniProgram.Web.Controllers
             return Ok(data);
         }
 
-        [HttpGet("UpdateOrderDetail")]
+        [HttpPost]
+        [Route("api/OrderDetail/UpdateOrderDetail")]
         public async Task<ActionResult> UpdateOrderDetail(OrderDetailViewModel data)
         {
             var orderDetail = new OrderItem
@@ -117,10 +122,11 @@ namespace MniProgram.Web.Controllers
             return Ok(data);
         }
 
-        [HttpGet("DeleteOrder")]
-        public async Task<ActionResult> DeleteOrderDetail(int orderId)
+        [HttpPost]
+        [Route("api/OrderDetail/DeleteOrderDetail/{orderDetailId}")]
+        public async Task<ActionResult> DeleteOrderDetail(int orderDetailId)
         {
-            var result = await _orderRepository.DeleteOrderItem(orderId);
+            var result = await _orderRepository.DeleteOrderItem(orderDetailId);
             return Ok(result);
         }
     }

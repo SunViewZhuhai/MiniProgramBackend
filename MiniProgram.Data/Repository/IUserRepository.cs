@@ -4,7 +4,8 @@ using System.Text;
 
 namespace MiniProgram.Data.Repository
 {
-    public class UserRepository : IUserRepository
+    public interface IUserRepository
     {
+
     }
 }

@@ -33,7 +33,10 @@ namespace MiniProgram
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<DbEntity>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<OrderRepository, OrderRepository>();
+
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+
             services.AddHttpClient("wx", c =>
             {
                 c.BaseAddress = new Uri("https://api.weixin.qq.com/");
