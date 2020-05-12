@@ -11,6 +11,7 @@ namespace MniProgram.Web.ViewModel
         public DateTime OrderDate { get; set; }
         public double Amount { get; set; }
         public int PrepayerId { get; set; }
+        public string PrepayerName { get; set; }
         public List<OrderDetailViewModel> orderDetailViewModels { get; set; }
     }
 }

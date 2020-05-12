@@ -29,6 +29,7 @@ namespace MiniProgram.Data.Repository
             {
                 throw new Exception("Add cost data failed.");
             }
+            await _dbEntity.Entry(data).Reference(p => p.Prepayer).LoadAsync();
             return data;
         }
 
@@ -70,6 +71,11 @@ namespace MiniProgram.Data.Repository
                 throw;
             }
             
+        }
+
+        public async Task<IEnumerable<OrderItem>> GetOrderItemList(int id)
+        {
+            return await _dbEntity.OrderItems.Where(x => x.ConsumerId == id).ToListAsync();
         }
 
         public async Task<OrderItem> AddOrderItem(OrderItem data)

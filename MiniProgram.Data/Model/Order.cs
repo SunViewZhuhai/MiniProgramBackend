@@ -10,7 +10,7 @@ namespace MiniProgram.Data.Model
         public DateTime OrderDate { get; set; }
         public double Amount { get; set; }
         public int PrepayerId { get; set; }
-        public User Prepayer { get; set; }
+        public virtual Member Prepayer { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MiniProgram.Data.Model
 {
-    public class User
+    public class Member
     {        
         public int Id { get; set; }
         public string Name { get; set; }

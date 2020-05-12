@@ -32,6 +32,7 @@ namespace MniProgram.Web.Controllers
                 Amount = x.Amount,
                 OrderDate = x.OrderDate,
                 PrepayerId = x.PrepayerId,
+                PrepayerName = x.Prepayer.Name,
                 orderDetailViewModels = x.OrderItems.Select(y => new OrderDetailViewModel
                 {
                     Id = y.Id,
@@ -54,14 +55,15 @@ namespace MniProgram.Web.Controllers
             {
                 Amount = data.Amount,
                 OrderDate = data.OrderDate,
-                PrepayerId = data.PrepayerId
+                PrepayerId = data.PrepayerId,                
             };
             var result = await _orderRepository.AddOrder(order);
             data.Id = result.Id;
+            data.PrepayerName = result.Prepayer.Name;
             return Ok(data);
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("api/Order/UpdateOrder")]
         public async Task<ActionResult> UpdateOrder(OrderListViewModel data)
         {
@@ -76,7 +78,7 @@ namespace MniProgram.Web.Controllers
             return Ok(data);
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("api/Order/DeleteOrder/{orderId}")]
         public async Task<ActionResult> DeleteOrder(int orderId)
         {
@@ -84,7 +86,25 @@ namespace MniProgram.Web.Controllers
             return Ok(result);
         }
 
-
+        [HttpGet]
+        [Route("api/OrderDetail/GetOrderItemList/{id}")]
+        public async Task<ActionResult> GetOrderItemList(int id)
+        {
+            
+            var result = await _orderRepository.GetOrderItemList(id);
+            var data = result.Select(y => new OrderDetailViewModel
+            {
+                Id = y.Id,
+                CategoryId = y.CategoryId,
+                ConsumerId = y.ConsumerId,
+                OrderId = y.OrderId,
+                OrderDate = y.Order.OrderDate,
+                OrderItemName = y.OrderItemName,
+                Price = y.Price,
+                IsPay = y.IsPay
+            }).OrderByDescending(x => x.OrderDate).ToList();
+            return Ok(data);
+        }
 
         [HttpPost]
         [Route("api/OrderDetail/AddOrderDetail")]
@@ -104,7 +124,7 @@ namespace MniProgram.Web.Controllers
             return Ok(data);
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("api/OrderDetail/UpdateOrderDetail")]
         public async Task<ActionResult> UpdateOrderDetail(OrderDetailViewModel data)
         {

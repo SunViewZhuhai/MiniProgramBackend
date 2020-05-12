@@ -10,11 +10,11 @@ namespace MiniProgram.Data.Model
         public string OrderItemName { get; set; }
         public double Price { get; set; }
         public int ConsumerId { get; set; }
-        public User Consumer { get; set; }
+        public virtual Member Consumer { get; set; }
         public int OrderId { get; set; }
-        public Order Order { get; set; }
+        public virtual Order Order { get; set; }
         public int CategoryId { get; set; }
-        public OrderItemCategory OrderItemCategory { get; set; }
+        public virtual OrderItemCategory OrderItemCategory { get; set; }
         public bool IsPay { get; set; }
     }
 }

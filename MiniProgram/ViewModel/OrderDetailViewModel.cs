@@ -10,6 +10,7 @@ namespace MniProgram.Web.ViewModel
         public int Id { get; set; }
         public string OrderItemName { get; set; }
         public double Price { get; set; }
+        public DateTime OrderDate { get; set; }
         public int ConsumerId { get; set; }
         public int OrderId { get; set; }
         public int CategoryId { get; set; }
